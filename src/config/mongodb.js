@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-
-import { dbUri } from "./index.js";
+import { mongoUri } from "./index.js";
 
 export default async () => {
   mongoose.set("strictQuery", false);
   await mongoose
-    .connect(dbUri, {})
+    .connect(mongoUri, {})
     .then(() => {
       console.log("Mongodb Connection");
     })

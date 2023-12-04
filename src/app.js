@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dbConnection from "./config/mongodb.js";
 import { port } from "./config/index.js";
-import routes from "./api/routes/index.js";
+import router from "./api/routes/index.js";
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.get("/", (_req, res) => {
   return res.status(200).json("Project is successfully working").end();
 });
 
-app.use("/", routes);
+app.use("/", router);
 
 app.listen(port, (error) => {
   if (error) {
