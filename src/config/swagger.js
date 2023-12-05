@@ -14,7 +14,7 @@ const swaggerOptions = {
     },
   },
   basePath: '/api',
-  apis: ['./src/app.js', './src/api/documentation/users.js'],
+  apis: ['./src/app.js', './src/api/documentation/*.js'],
 };
 
 export default swaggerJsdoc(swaggerOptions);
