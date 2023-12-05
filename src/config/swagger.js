@@ -1,22 +1,22 @@
 export default {
   swaggerDefinition: {
-    openapi: "3.0.1",
+    openapi: '3.1.0',
     info: {
-      title: "Edvisto IntechMom",
-      version: "1.0.0",
-      description: "",
+      title: 'Edvisto IntechMom',
+      version: '1.0.0',
+      description: '',
       license: {
-        name: "Apache 2.0",
-        url: "https://www.apache.org/licenses/LICENSE-2.0.html",
+        name: 'Apache 2.0',
+        url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
       },
     },
-    basePath: "/api",
+    basePath: '/api',
   },
   tags: [
     {
-      name: "Example",
-      description: "API for users",
+      name: 'Example',
+      description: 'API for users',
     },
   ],
-  apis: ["src/routes/index.js"],
+  apis: ['./src/app.js', './src/api/docs/*.js'],
 };
