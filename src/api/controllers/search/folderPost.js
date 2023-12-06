@@ -28,7 +28,7 @@ const createFol = async (request, response, next) => {
       data: newFolder,
     });
 
-    //response.status(201).json({ message: 'Carpeta creada correctamente' });
+    
   } catch (error) {
     console.error(error);
     response.status(500).json({ error: "Error al crear la carpeta" });

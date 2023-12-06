@@ -28,6 +28,7 @@ app.use("/videos", router);
 app.use("/create", router);
 app.use("/add", router);
 app.use("/folder", router);
+app.use('/delete', router);
 
 app.listen(port, (error) => {
   if (error) {

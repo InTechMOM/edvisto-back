@@ -1,7 +1,7 @@
 import axios from "axios";
 import { apiKey } from "../../../config/index.js";
 
-// Youtube ID channels
+// Youtube ID channels Khan Academy y National Geographic
 const channelIds = ["UCGQO3uUEXBLwDjNSlWFVMVQ", "UCnmlG_YzRYzWzJbW2oDn_ow"];
 
 export async function searchVideos(request, response) {
