@@ -52,6 +52,30 @@
  *      acceptedTerms: True
  */
 
+//Authorization
+
+/**
+ * @openapi 
+ *  components:
+ *   securitySchemes:
+ *    bearerAuth:
+ *     type: apiKey
+ *     in: header
+ *     name: Authorization
+ *     scheme: bearer
+ *     bearerFormat: JWT
+ */
+
+//Response
+
+/**
+ * @openapi 
+ *  components:
+ *   responses:
+ *    UauthorizedError:
+ *     description: Acess token is missing or invalid
+ */
+
 //API POST
 
 /**
@@ -86,59 +110,63 @@
  * @openapi
  * /users:
  *  get:
- *   summary: Return all users
- *   tags: [User]
- *   parameters:
- *    - in: query
- *      name: name
- *      description: Query for name
- *      schema:
- *        type: string
- *    - in: query
- *      name: lastName
- *      description: Query for lastName
- *      schema:
- *        type: string
- *    - in: query
- *      name: email
- *      description: Query for email
- *      schema:
- *        type: string
- *    - in: query
- *      name: securityQuestion
- *      description: Query for securityQuestion
- *      schema:
- *        type: string
- *    - in: query
- *      name: securityResponse
- *      description: Query for securityResponse
- *      schema:
- *        type: string
- *    - in: query
- *      name: rol
- *      description: Query for rol
- *      schema:
- *        type: string
- *    - in: query
- *      name: course
- *      description: Query for course
- *      schema:
- *        type: string
- *   responses:
- *    200:
- *     description: All users
- *     content:
- *      application/json:
+ *    security:
+ *      - bearerAuth: []
+ *    summary: Return all users
+ *    tags: [User]
+ *    parameters:
+ *     - in: query
+ *       name: name
+ *       description: Query for name
  *       schema:
- *        type: array
- *        items:
- *         $ref: '#/components/schemas/UserSchema'
- *    400:
- *     description: Something went wrong
- *    404:
- *     description: User Not Found
- *    500:
- *     description: Unknown error
+ *         type: string
+ *     - in: query
+ *       name: lastName
+ *       description: Query for lastName
+ *       schema:
+ *         type: string
+ *     - in: query
+ *       name: email
+ *       description: Query for email
+ *       schema:
+ *         type: string
+ *     - in: query
+ *       name: securityQuestion
+ *       description: Query for securityQuestion
+ *       schema:
+ *         type: string
+ *     - in: query
+ *       name: securityResponse
+ *       description: Query for securityResponse
+ *       schema:
+ *         type: string
+ *     - in: query
+ *       name: rol
+ *       description: Query for rol
+ *       schema:
+ *         type: string
+ *     - in: query
+ *       name: course
+ *       description: Query for course
+ *       schema:
+ *         type: string
+ *    responses:
+ *     200:
+ *      description: All users
+ *      content:
+ *       application/json:
+ *        schema:
+ *         type: array
+ *         items:
+ *          $ref: '#/components/schemas/UserSchema'
+ *     400:
+ *      description: Something went wrong
+ *     401:
+ *      $ref: '#/components/responses/UauthorizedError'
+ *     404:
+ *      description: User Not Found
+ *     500:
+ *      description: Unknown error
  */
 
 // API DELETE
@@ -147,32 +175,36 @@
  * @openapi
  * /users/{id}:
  *  delete:
- *   summary: Delete a user with their specific ID
- *   tags: [User]
- *   parameters:
- *    - in: path
- *      name: id
- *      schema:
- *        type: string
- *      required: true
- *      description: The user id
- *   responses:
- *    200:
- *     description: User
- *     content:
- *      application/json:
+ *    security:
+ *      - bearerAuth: []
+ *    summary: Delete a user with their specific ID
+ *    tags: [User]
+ *    parameters:
+ *     - in: path
+ *       name: id
  *       schema:
- *        type: object
- *        items:
- *         $ref: '#/components/schemas/UserSchema'
- *    400:
- *     description: Something went wrong
- *    404:
- *     description: User Not Found
- *    422:
- *     description: Id Not Valid
- *    500:
- *     description: Unknown error
+ *         type: string
+ *       required: true
+ *       description: The user id
+ *    responses:
+ *     200:
+ *      description: User
+ *      content:
+ *       application/json:
+ *        schema:
+ *         type: object
+ *         items:
+ *          $ref: '#/components/schemas/UserSchema'
+ *     400:
+ *      description: Something went wrong
+ *     401:
+ *      $ref: '#/components/responses/UauthorizedError'
+ *     404:
+ *      description: User Not Found
+ *     422:
+ *      description: Id Not Valid
+ *     500:
+ *      description: Unknown error
  */
 
 //API PATCH
@@ -198,22 +230,26 @@
  * @openapi
  * /resetPassword:
  *  patch:
- *   summary: The following route, send an email to reset the password, if the email provided matches the one registered on the platform.
- *   tags: [Login]
- *   requestBody:
- *    required: true
- *    content:
- *     application/json:
- *      schema:
- *       type: object
- *       $ref: '#/components/schemas/UserEVreset'
- *   responses:
- *    200:
- *     description: Message sent succesfully
- *    400:
- *     description: Bad Request
- *    403:
- *     description: Unregistered Email or Incorrect security response
+ *    security:
+ *      - bearerAuth: []
+ *    summary: The following route, send an email to reset the password, if the email provided matches the one registered on the platform.
+ *    tags: [Login]
+ *    requestBody:
+ *     required: true
+ *     content:
+ *      application/json:
+ *       schema:
+ *        type: object
+ *        $ref: '#/components/schemas/UserEVreset'
+ *    responses:
+ *     200:
+ *      description: Message sent succesfully
+ *     400:
+ *      description: Bad Request 
+ *     401:
+ *      $ref: '#/components/responses/UauthorizedError'
+ *     403:
+ *      description: Unregistered Email or Incorrect security response
  */
 
 //API LOGIN
