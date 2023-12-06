@@ -1,4 +1,4 @@
-import Folder from "../../../models/createFolder.js";
+import Folder from '../../../models/createFolder.js';
 
 const createFol = async (request, response, next) => {
   try {
@@ -8,11 +8,9 @@ const createFol = async (request, response, next) => {
     const existingFolder = await Folder.findOne({ email, folderName });
 
     if (existingFolder) {
-      return response
-        .status(400)
-        .json({
-          error: "Ya existe una carpeta con el mismo nombre para este usuario",
-        });
+      return response.status(400).json({
+        error: 'Ya existe una carpeta con el mismo nombre para este usuario',
+      });
     }
 
     // Crear la nueva carpeta y guardarla en la base de datos
@@ -24,14 +22,12 @@ const createFol = async (request, response, next) => {
     });
     await newFolder.save();
     response.status(201).json({
-      message: "Carpeta creada correctamente",
+      message: 'Carpeta creada correctamente',
       data: newFolder,
     });
-
-    
   } catch (error) {
     console.error(error);
-    response.status(500).json({ error: "Error al crear la carpeta" });
+    response.status(500).json({ error: 'Error al crear la carpeta' });
   }
 };
 

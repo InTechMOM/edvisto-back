@@ -1,8 +1,8 @@
-import axios from "axios";
-import { apiKey } from "../../../config/index.js";
+import axios from 'axios';
+import { apiKey } from '../../../config/index.js';
 
 // Youtube ID channels Khan Academy y National Geographic
-const channelIds = ["UCGQO3uUEXBLwDjNSlWFVMVQ", "UCnmlG_YzRYzWzJbW2oDn_ow"];
+const channelIds = ['UCGQO3uUEXBLwDjNSlWFVMVQ', 'UCnmlG_YzRYzWzJbW2oDn_ow'];
 
 export async function searchVideos(request, response) {
   try {
@@ -37,29 +37,11 @@ export async function searchVideos(request, response) {
       });
     }
 
-    response.json(searchResults);
-
-    /*
-    // Realiza una solicitud a la API de YouTube para buscar videos en el canal seleccionado
-    const resp = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&q=${searchQuery}&part=snippet,id&order=date&maxResults=${maxResults}`
-    );
-
-    // Extrae la información relevante de los videos
-    const videos = resp.data.items.map((item) => {
-      return {
-        title: item.snippet.title,
-        thumbnail: item.snippet.thumbnails.default.url,
-        videoId: item.id.videoId,
-        videoLink: `https://www.youtube.com/watch?v=${item.id.videoId}`,
-      };
-    });
-
-    response.json(videos);*/
+    return response.json(searchResults);
   } catch (error) {
-    console.error("Error:", error);
-    response
+    console.error('Error:', error);
+    return response
       .status(500)
-      .json({ error: "Hubo un error al obtener los videos." });
+      .json({ error: 'Hubo un error al obtener los videos.' });
   }
 }
