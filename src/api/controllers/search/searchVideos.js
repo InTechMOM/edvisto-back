@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiKey } from '../../../config/index.js';
+import { googleApiKey } from '../../../config/index.js';
 
 // Youtube ID channels Khan Academy y National Geographic
 const channelIds = ['UCGQO3uUEXBLwDjNSlWFVMVQ', 'UCnmlG_YzRYzWzJbW2oDn_ow'];
@@ -15,7 +15,7 @@ export async function searchVideos(request, response) {
     // Itera a través de los IDs de los canales y realiza una solicitud para cada uno
     for (const channelId of channelIds) {
       const resp = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&q=${encodeURIComponent(
+        `https://www.googleapis.com/youtube/v3/search?key=${googleApiKey}&channelId=${channelId}&q=${encodeURIComponent(
           searchQuery
         )}&part=snippet,id&order=date&maxResults=${maxResults}`
       );
