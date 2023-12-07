@@ -1,5 +1,5 @@
 import UserEV from '../../../models/user.js';
-import { schemaLogin } from './validation.js';
+import { schemaLogin } from '../../validations/users.js';
 import auth from '../../../config/firebase.js';
 import {
   signInWithEmailAndPassword,
@@ -10,6 +10,7 @@ import authorizationRol from '../../middlewares/authorizationRol.js';
 const login = async (request, response, next) => {
   try {
     const { error } = schemaLogin.validate(request.body);
+
     if (error) {
       return response.status(400).json({ error: 'Bad Request' });
     }

@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import swaggerJsdoc from 'swagger-jsdoc';
 import { serve, setup } from 'swagger-ui-express';
 import swaggerSpecification from '../../config/swagger.js';
 import searchRouter from './search.js';

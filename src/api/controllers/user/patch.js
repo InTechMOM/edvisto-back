@@ -1,7 +1,7 @@
 import auth from '../../../config/firebase.js';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import UserEV from '../../../models/user.js';
-import { schemaUpdate } from './validation.js';
+import { schemaUpdate } from '../../validations/users.js';
 
 //Resetear contraseña
 const resetPassword = async (request, response, next) => {
@@ -26,7 +26,7 @@ const resetPassword = async (request, response, next) => {
         .json({ error: 'Incorrect security response' });
     }
 
-    //await sendPasswordResetEmail(auth, email);
+    // await sendPasswordResetEmail(auth, email);
 
     return response
       .status(200)

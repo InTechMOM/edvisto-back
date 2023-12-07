@@ -56,11 +56,7 @@ export const schemaLogin = Joi.object({
     .max(32)
     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
     .required(),
-  password: Joi.string()
-    .min(6)
-    .max(20)
-    .pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).*$/)
-    .required(),
+  password: Joi.string().min(6).max(20).normalize().required(),
 });
 
 export const schemaUpdate = Joi.object({
