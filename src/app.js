@@ -22,7 +22,7 @@ app.get('/', (_req, res) => {
   return res.status(200).json('Project is successfully working').end();
 });
 
-app.use('/', router);
+app.use('/api', router);
 
 app.listen(port, (error) => {
   if (error) {
