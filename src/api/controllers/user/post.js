@@ -1,5 +1,5 @@
 import UserEV from '../../../models/user.js';
-import { schemaRegister } from '../../validations/users.js';
+import { schemaRegister } from '../../validators/users.js';
 import auth from '../../../config/firebase.js';
 import {
   createUserWithEmailAndPassword,

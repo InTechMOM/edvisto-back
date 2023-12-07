@@ -13,8 +13,8 @@ const allProjects = async (request, response, next) => {
     };
 
     const arrayProjects = await Assignment.find(filters);
-
-    if (arrayProjects?.length === 0) {
+    console.log(arrayProjects);
+    if (!arrayProjects?.length) {
       return response.status(404).json({
         message: 'Projects Not Found',
       });

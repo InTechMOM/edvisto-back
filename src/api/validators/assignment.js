@@ -25,7 +25,7 @@ export const SchemaAssignment = Joi.object({
     .required(),
   name: Joi.string().required().min(3).max(100),
   title: Joi.string().required().min(3).max(100),
-  descriptión: Joi.string().required().max(1200),
+  description: Joi.string().required().max(1200),
   emailStudents: Joi.array()
     .items(
       Joi.string()

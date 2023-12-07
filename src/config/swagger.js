@@ -13,7 +13,7 @@ const swaggerOptions = {
       },
     },
   },
-  apis: ['./src/app.js', './src/api/documentation/*.js'],
+  apis: ['./src/app.js', './src/api/docs/*.js'],
 };
 
 export default swaggerJsdoc(swaggerOptions);

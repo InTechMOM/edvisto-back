@@ -41,7 +41,7 @@ const assignmentSchema = new Schema(
       minlength: [3, 'La cadena es más corta de la requerida'],
       maxlength: 100,
     },
-    descriptión: {
+    description: {
       type: String,
       required: true,
       maxlength: 1200,
