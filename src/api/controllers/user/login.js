@@ -1,5 +1,5 @@
 import UserEV from '../../../models/user.js';
-import { schemaLogin } from '../../validations/users.js';
+import { schemaLogin } from '../../validators/users.js';
 import auth from '../../../config/firebase.js';
 import {
   signInWithEmailAndPassword,

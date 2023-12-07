@@ -1,7 +1,7 @@
 import auth from '../../../config/firebase.js';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import UserEV from '../../../models/user.js';
-import { schemaUpdate } from '../../validations/users.js';
+import { schemaUpdate } from '../../validators/users.js';
 
 //Resetear contraseña
 const resetPassword = async (request, response, next) => {
