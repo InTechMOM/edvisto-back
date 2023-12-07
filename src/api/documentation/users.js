@@ -56,7 +56,7 @@
 
 /**
  * @openapi
- * /register:
+ * /api/register:
  *  post:
  *   summary: The following route creates, stores and sends a verification email to the provided email
  *   tags: [User]
@@ -84,7 +84,7 @@
 
 /**
  * @openapi
- * /users:
+ * /api/users:
  *  get:
  *   summary: Return all users
  *   tags: [User]
@@ -145,7 +145,7 @@
 
 /**
  * @openapi
- * /users/{id}:
+ * /api/users/{id}:
  *  delete:
  *   summary: Delete a user with their specific ID
  *   tags: [User]
@@ -196,7 +196,7 @@
 
 /**
  * @openapi
- * /resetPassword:
+ * /api/resetPassword:
  *  patch:
  *   summary: The following route, send an email to reset the password, if the email provided matches the one registered on the platform.
  *   tags: [Login]
@@ -239,7 +239,7 @@
 
 /**
  * @openapi
- * /login:
+ * /api/login:
  *  post:
  *   summary: The following route verifies the matching of the email with the password, and is blocked after 3 failed attempts, eventually where a password reset email was sent. Otherwise it gives access to the user.
  *   tags: [Login]

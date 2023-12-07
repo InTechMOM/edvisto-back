@@ -13,7 +13,6 @@ const swaggerOptions = {
       },
     },
   },
-  basePath: '/api',
   apis: ['./src/app.js', './src/api/documentation/*.js'],
 };
 
