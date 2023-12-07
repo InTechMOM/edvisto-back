@@ -1,4 +1,6 @@
-export default {
+import swaggerJsdoc from 'swagger-jsdoc';
+
+const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.1.0',
     info: {
@@ -10,13 +12,8 @@ export default {
         url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
       },
     },
-    basePath: '/api',
   },
-  tags: [
-    {
-      name: 'Example',
-      description: 'API for users',
-    },
-  ],
-  apis: ['./src/app.js', './src/api/docs/*.js'],
+  apis: ['./src/app.js', './src/api/documentation/*.js'],
 };
+
+export default swaggerJsdoc(swaggerOptions);
