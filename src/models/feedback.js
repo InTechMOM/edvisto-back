@@ -1,0 +1,64 @@
+import { Schema, model } from 'mongoose';
+
+const studentsFeedbackSchema = new Schema(
+  {
+    assignmentId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Assignment',
+      required: true,
+    },
+    course: {
+      type: String,
+    },
+    title: {
+      type: String,
+    },
+    emailStudent: {
+      type: String,
+      required: true,
+      minlength: 8,
+      maxlength: 32,
+      minDomainSegments: 2,
+      tlds: { allow: ['com', 'net'] },
+      noWhiteSpaces: 0,
+    },
+    videoURL: {
+      type: String,
+    },
+    feedback: {
+      skills: {
+        communication: {
+          type: Number,
+          min: 0,
+          max: 5,
+        },
+        collaboration: {
+          type: Number,
+          min: 0,
+          max: 5,
+        },
+        creativity: {
+          type: Number,
+          min: 0,
+          max: 5,
+        },
+        criticalThinking: {
+          type: Number,
+          min: 0,
+          max: 5,
+        },
+      },
+      comment: {
+        type: String,
+      },
+    },
+    qualified: {
+      type: Boolean,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default model('StudentsFeedback', studentsFeedbackSchema);
