@@ -47,7 +47,7 @@
 //Authorization
 
 /**
- * @openapi 
+ * @openapi
  *  components:
  *   securitySchemes:
  *    bearerAuth:
@@ -61,10 +61,10 @@
 //Response
 
 /**
- * @openapi 
+ * @openapi
  *  components:
  *   responses:
- *    UauthorizedError:
+ *    UnauthorizedError:
  *     description: Acess token is missing or invalid
  */
 
@@ -91,7 +91,7 @@
  *     400:
  *      description: Bad Request, or Invalid date
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: Unregistered teacher email
  *     422:
@@ -148,7 +148,7 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: Project Not Found
  *     500:
@@ -184,7 +184,7 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: Assignment Not Found
  *     422:

@@ -55,7 +55,7 @@
 //Authorization
 
 /**
- * @openapi 
+ * @openapi
  *  components:
  *   securitySchemes:
  *    bearerAuth:
@@ -69,11 +69,11 @@
 //Response
 
 /**
- * @openapi 
+ * @openapi
  *  components:
  *   responses:
- *    UauthorizedError:
- *     description: Acess token is missing or invalid
+ *    UnauthorizedError:
+ *     description: Access token is missing or invalid
  */
 
 //API POST
@@ -154,7 +154,7 @@
  *       name: course
  *       description: Query for course
  *       schema:
- *         type: string 
+ *         type: string
  *     - in: query
  *       name: country
  *       description: Query for country
@@ -172,7 +172,7 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: User Not Found
  *     500:
@@ -208,7 +208,7 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: User Not Found
  *     422:
@@ -253,9 +253,9 @@
  *    200:
  *     description: Message sent succesfully
  *    400:
- *     description: Bad Request 
+ *     description: Bad Request
  *    401:
- *     $ref: '#/components/responses/UauthorizedError'
+ *     $ref: '#/components/responses/UnauthorizedError'
  *    403:
  *     description: Unregistered Email or Incorrect security response
  */
@@ -314,7 +314,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: The following route updates the profile created by the user.
- *    tags: [UserSchema]
+ *    tags: [User]
  *    parameters:
  *     - in: path
  *       name: id
@@ -335,14 +335,14 @@
  *     400:
  *      description: Bad Request
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     422:
  *      description: Validation error, wrong date format
  *     500:
  *      description: Unknown error
  */
 
-/ API GET
+// API GET
 
 /**
  * @openapi
@@ -351,7 +351,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: Return a user
- *    tags: [UserSchema]
+ *    tags: [User]
  *    parameters:
  *     - in: path
  *       name: id
@@ -371,12 +371,11 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: User Not Found
  *     422:
  *      description: Id Not Valid
  *     500:
- *      description: Unknown error 
+ *      description: Unknown error
  */
- 

@@ -1,79 +1,54 @@
 //Esquema de Feedback
 
 /**
-* @openapi 
-*components:
-*  schemas:
-*    FeedbackSchema:
-*      type: object
-*      properties:
-*        assignmentId:
-*          type: string
-*          description: "ID of the assignment."
-*        deliveries:
-*          type: array
-*          items:
-*            type: object
-*            properties:
-*              emailStudent:
-*                type: string
-*                description: "Email of the student."
-*              videoURL:
-*                type: string
-*                description: "URL of the video."
-*              feedback:
-*                type: object
-*                properties:
-*                  skills:
-*                    type: object
-*                    properties:
-*                      communication:
-*                        type: number
-*                        description: "Communication skills rating (0-5)."
-*                      collaboration:
-*                        type: number
-*                        description: "Collaboration skills rating (0-5)."
-*                      creativity:
-*                        type: number
-*                        description: "Creativity skills rating (0-5)."
-*                      criticalThinking:
-*                        type: number
-*                        description: "Critical thinking skills rating (0-5)."
-*                  comment:
-*                    type: string
-*                    description: "Additional comments."
-*              qualified:
-*                type: boolean
-*                description: "Qualification status."
-*      required:
-*        - assignmentId
-*        - deliveries
-*/ 
-
-//Authorization
-
-/**
- * @openapi 
- *  components:
- *   securitySchemes:
- *    bearerAuth:
- *     type: apiKey
- *     in: header
- *     name: Authorization
- *     scheme: bearer
- *     bearerFormat: JWT
+ * @openapi
+ *components:
+ *  schemas:
+ *    FeedbackSchema:
+ *      type: object
+ *      properties:
+ *        assignmentId:
+ *          type: string
+ *          description: "ID of the assignment."
+ *        deliveries:
+ *          type: array
+ *          items:
+ *            type: object
+ *            properties:
+ *              emailStudent:
+ *                type: string
+ *                description: "Email of the student."
+ *              videoURL:
+ *                type: string
+ *                description: "URL of the video."
+ *              feedback:
+ *                type: object
+ *                properties:
+ *                  skills:
+ *                    type: object
+ *                    properties:
+ *                      communication:
+ *                        type: number
+ *                        description: "Communication skills rating (0-5)."
+ *                      collaboration:
+ *                        type: number
+ *                        description: "Collaboration skills rating (0-5)."
+ *                      creativity:
+ *                        type: number
+ *                        description: "Creativity skills rating (0-5)."
+ *                      criticalThinking:
+ *                        type: number
+ *                        description: "Critical thinking skills rating (0-5)."
+ *                  comment:
+ *                    type: string
+ *                    description: "Additional comments."
+ *              qualified:
+ *                type: boolean
+ *                description: "Qualification status."
+ *      required:
+ *        - assignmentId
+ *        - deliveries
  */
-
-//Response
-
-/**
- * @openapi 
- *  components:
- *   responses:
- *    UauthorizedError:
- *     description: Acess token is missing or invalid
- */
-
 
 //API POST
 
@@ -84,7 +59,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: Creates the deliverable to a given project assignment
- *    tags: [FeedbackSchema]
+ *    tags: [Feedback]
  *    parameters:
  *    -  in: path
  *       name: id
@@ -100,13 +75,13 @@
  *        type: object
  *        $ref: '#/components/schemas/FeedbackSchema'
  *       example:
- *        emailStudent: some1@example.com 
+ *        emailStudent: some1@example.com
  *        videoURL: https://www.youtube.com/watch?v=T85b4E-piVE&t=224s
  *    responses:
  *     201:
  *      description: Project delivered
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     403:
  *      description: Delivery out of dates
  *     404:
@@ -126,7 +101,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: Return all deliveries and qualified projects
- *    tags: [FeedbackSchema]
+ *    tags: [Feedback]
  *    parameters:
  *     - in: query
  *       name: assignmentId
@@ -165,11 +140,11 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: Deliveries Not Found
  *     500:
- *      description: Unknown error 
+ *      description: Unknown error
  */
 
 // API GET
@@ -181,7 +156,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: Return count of qualified deliverables over the total quantity of a project
- *    tags: [FeedbackSchema]
+ *    tags: [Feedback]
  *    parameters:
  *     - in: path
  *       name: id
@@ -201,11 +176,11 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     422:
  *      description: Id Not Valid
  *     500:
- *      description: Unknown error 
+ *      description: Unknown error
  */
 
 // API PATCH
@@ -216,7 +191,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: Project qualified
- *    tags: [FeedbackSchema]
+ *    tags: [Feedback]
  *    parameters:
  *     - in: path
  *       name: id
@@ -245,16 +220,14 @@
  *     400:
  *      description: Qualification must not be empty
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
- *      description: Delivery Not Found 
+ *      description: Delivery Not Found
  *     422:
  *      description: Id Not Valid
  *     500:
- *      description: UnKwnown Error 
+ *      description: UnKwnown Error
  */
-
-
 
 // API DELETE
 
@@ -265,7 +238,7 @@
  *    security:
  *      - bearerAuth: []
  *    summary: Delete a delivery with their specific ID
- *    tags: [FeedbackSchema]
+ *    tags: [Feedback]
  *    parameters:
  *     - in: path
  *       name: id
@@ -285,7 +258,7 @@
  *     400:
  *      description: Something went wrong
  *     401:
- *      $ref: '#/components/responses/UauthorizedError'
+ *      $ref: '#/components/responses/UnauthorizedError'
  *     404:
  *      description: Delivery Not Found
  *     422:
