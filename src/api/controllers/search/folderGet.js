@@ -2,15 +2,15 @@ import Folder from '../../../models/createFolder.js';
 
 const getFolders = async (request, response) => {
   try {
-    const { email } = request.query;
+    const { email,folderName } = request.query;
 
-    if (!email) {
-      return response
-        .status(400)
-        .json({ error: 'Se requiere el parámetro de correo electrónico' });
-    }
+    const filter={
+    ...email && {email},
+    ...folderName && {folderName}
+  };
 
-    const folders = await Folder.find({ email });
+
+    const folders = await Folder.find(filter);
 
     response.status(200).json({ folders });
   } catch (error) {
