@@ -21,7 +21,7 @@ const userDelete = async (request, response, next) => {
 
     const deletedUser = await UserEV.findByIdAndDelete(id);
 
-    await adminFB.auth().deleteUser(uid);
+    // await adminFB.auth().deleteUser(uid);
     return response.status(200).json({
       message: 'User successfully deleted',
       data: deletedUser,
