@@ -55,6 +55,7 @@ export const registerMongoDB = async (request, response, next) => {
       securityQuestion,
       securityResponse,
       rol,
+      course,
       acceptedTerms,
     } = request.body;
 
@@ -85,6 +86,7 @@ export const registerMongoDB = async (request, response, next) => {
         securityQuestion,
         securityResponse,
         rol,
+        course,
         acceptedTerms,
       };
 
