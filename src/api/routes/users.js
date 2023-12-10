@@ -9,13 +9,13 @@ import login from '../controllers/user/login.js';
 import { registerGoogle } from '../controllers/user/authenticationGoogle.js';
 import resetPassword from '../controllers/user/patch.js';
 
-// usersRouter.post('/logout', signOutUser);
+usersRouter.post('/logout', signOutUser);
 usersRouter.get('/users', allUsers);
 usersRouter.delete('/users/:id', userDelete);
 
-// usersRouter.post('/register', registerMongoDB);
+usersRouter.post('/register', registerMongoDB);
 usersRouter.post('/login', login);
-// usersRouter.post('/registergoogle', registerGoogle);
-// usersRouter.patch('/resetPassword', resetPassword);
+usersRouter.post('/registergoogle', registerGoogle);
+usersRouter.patch('/resetPassword', resetPassword);
 
 export default usersRouter;

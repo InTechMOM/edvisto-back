@@ -10,11 +10,10 @@ import { firebaseConfig } from './index.js';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-// const auth = getAuth(app);
-const auth = {};
+const auth = getAuth(app);
 
-// setPersistence(auth, browserSessionPersistence);
+setPersistence(auth, browserSessionPersistence);
 
 export default auth;
