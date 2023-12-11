@@ -1,6 +1,6 @@
 function authorizationRol(observerUser, response, idToken, refreshToken) {
   console.log(observerUser);
-  if (observerUser.rol === 'Soy Profesor') {
+  if (observerUser.rol === 'Soy Docente') {
     return response
       .status(200)
       .json({
